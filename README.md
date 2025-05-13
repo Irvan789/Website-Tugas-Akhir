@@ -43,15 +43,15 @@ Response:
     "relay": {
       "n1": {
         "source": "auto",
-        "max_load": 50
+        "max_load": 25
       },
       "n2": {
         "source": "auto",
-        "max_load": 70
+        "max_load": 40
       },
       "n3": {
         "source": "auto",
-        "max_load": 100
+        "max_load": 60
       }
     }
   }
@@ -79,16 +79,19 @@ Payload:
   "lplts": 25,
   "relay": {
     "n1": {
-      "source": "plts",
-      "load": 25
+      "power": 25,
+      "current": 0.114,
+      "source": "plts"
     },
     "n2": {
-      "source": "pln",
-      "load": 35
+      "power": 35,
+      "current": 0.159,
+      "source": "pln"
     },
     "n3": {
-      "source": "pln",
-      "load": 40
+      "power": 40,
+      "current": 0.182,
+      "source": "pln"
     }
   }
 }
@@ -107,4 +110,4 @@ Response:
 
 Catatan:
 
-1. Key configTime pada object data menunjukkan waktu terakhir konfigurasi diubah.
+1. Key configTime pada object data menunjukkan waktu terakhir konfigurasi diperbarui.
