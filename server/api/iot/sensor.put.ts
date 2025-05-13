@@ -2,7 +2,7 @@ import moment from "moment"
 import { ZodError } from "zod"
 
 import { zDataValidation } from "~/utils/Validation"
-import { IStatistics } from "~/types/database"
+import { IDevices, IStatistics } from "~/types/database"
 
 export default defineEventHandler(async (event) => {
   const data: IStatistics = await readBody(event)
@@ -23,22 +23,26 @@ export default defineEventHandler(async (event) => {
         lplts: data.lplts,
         relay: {
           n1: {
-            load: data.relay.n1.load,
+            power: data.relay.n1.power,
+            current: parseFloat(data.relay.n1.current.toFixed(3)),
             source: data.relay.n1.source
           },
           n2: {
-            load: data.relay.n2.load,
+            power: data.relay.n2.power,
+            current: parseFloat(data.relay.n2.current.toFixed(3)),
             source: data.relay.n2.source
           },
           n3: {
-            load: data.relay.n3.load,
+            power: data.relay.n3.power,
+            current: parseFloat(data.relay.n3.current.toFixed(3)),
             source: data.relay.n3.source
           }
         },
         time: timeNow
       })
 
-    const configTime = (await statisticRef.child("configTime").get()).val() as number
+    const deviceData = await deviceRef.get()
+    const { configTime } = deviceData.val() as IDevices
 
     return responseSuccess(event, 200, "OK", { configTime: configTime })
   } catch (e) {

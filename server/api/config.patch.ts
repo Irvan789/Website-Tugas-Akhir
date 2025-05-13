@@ -7,7 +7,6 @@ import { responseError, responseSuccess } from "~/server/utils/ApiResponse"
 import { IDevices } from "~/types/database"
 
 export default defineEventHandler(async (event) => {
-  const config = useRuntimeConfig()
   const data: IDevices = await readBody(event)
 
   try {
@@ -20,10 +19,6 @@ export default defineEventHandler(async (event) => {
       pln: data.pln,
       plts: data.plts,
       relay: data.relay,
-      configTime: timeUnix
-    })
-
-    await statisticRef.update({
       configTime: timeUnix
     })
 

@@ -1,3 +1,8 @@
+export interface IUsers {
+  name: string
+  avatar: string
+}
+
 export interface IDevices {
   automated: boolean
   pln: {
@@ -5,9 +10,6 @@ export interface IDevices {
   }
   plts: {
     active: boolean
-    min_voltage: number
-  }
-  battery?: {
     min_voltage: number
   }
   relay: {
@@ -24,7 +26,7 @@ export interface IDevices {
       max_load: number
     }
   }
-  configTime?: number
+  configTime: number
 }
 
 export interface IStatistics {
@@ -35,15 +37,18 @@ export interface IStatistics {
   lplts: number
   relay: {
     n1: {
-      load: number
+      power: number
+      current: number
       source: string
     }
     n2: {
-      load: number
+      power: number
+      current: number
       source: string
     }
     n3: {
-      load: number
+      power: number
+      current: number
       source: string
     }
   }
