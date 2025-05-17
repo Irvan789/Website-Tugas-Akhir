@@ -13,7 +13,7 @@ export default defineEventHandler(async (event) => {
     const timeNow = moment().unix()
 
     await statisticRef
-      .child(`realtime`)
+      .child("realtime")
       .child(timeNow.toString())
       .update({
         vbatt: data.vbatt,

@@ -66,7 +66,7 @@ const props = defineProps<{
   </div>
   <div class="grid grid-cols-1 gap-2.5 lg:grid-cols-2">
     <ClientOnly>
-      <CardArea>
+      <CardGrap>
         <ApexChart
           height="280"
           :options="chartVPLNOptions"
@@ -77,8 +77,8 @@ const props = defineProps<{
             }
           ]"
         />
-      </CardArea>
-      <CardArea>
+      </CardGrap>
+      <CardGrap>
         <ApexChart
           height="280"
           :options="chartVPLTSOptions"
@@ -89,8 +89,8 @@ const props = defineProps<{
             }
           ]"
         />
-      </CardArea>
-      <CardArea>
+      </CardGrap>
+      <CardGrap>
         <ApexChart
           height="280"
           :options="chartLPLNOptions"
@@ -101,8 +101,8 @@ const props = defineProps<{
             }
           ]"
         />
-      </CardArea>
-      <CardArea>
+      </CardGrap>
+      <CardGrap>
         <ApexChart
           height="280"
           :options="chartLPLTSOptions"
@@ -113,7 +113,7 @@ const props = defineProps<{
             }
           ]"
         />
-      </CardArea>
+      </CardGrap>
       <template #fallback>
         <div
           class="col-span-2 flex h-[318px] w-full items-center justify-center bg-sky-200/20 px-4 py-5 shadow shadow-sky-200/40 lg:h-[508px]"

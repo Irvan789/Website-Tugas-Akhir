@@ -44,7 +44,8 @@ const config = reactive<IDevices>({
       source: res.value?.data?.relay.n3.source ?? deviceInitConfig.relay.n3.source,
       max_load: res.value?.data?.relay.n3.max_load ?? deviceInitConfig.relay.n3.max_load
     }
-  }
+  },
+  configTime: res.value?.data?.configTime ?? deviceInitConfig.configTime
 })
 
 watch(config, () => {
@@ -239,11 +240,7 @@ async function saveConfig() {
               />
             </div>
           </div>
-          <ButtonPrimary
-            type="submit"
-            class="bg-[#20529d]/90 text-white hover:bg-[#20529d] disabled:bg-[#2688f0]"
-            ref="btnRef"
-          >
+          <ButtonPrimary type="submit" class="px-3 py-2" ref="btnRef">
             Simpan Konfigurasi
           </ButtonPrimary>
         </form>
@@ -254,11 +251,7 @@ async function saveConfig() {
             Tidak Ada Konfigurasi Yang Tersimpan, Anda Harus Menginisiasi Konfigurasi Terlebih
             Dahulu!
           </div>
-          <ButtonPrimary
-            type="submit"
-            class="bg-[#20529d]/90 text-white hover:bg-[#20529d] disabled:bg-[#2688f0]"
-            ref="btnRef"
-          >
+          <ButtonPrimary type="submit" class="px-3 py-2" ref="btnRef">
             Inisiasi Konfigurasi
           </ButtonPrimary>
         </form>
