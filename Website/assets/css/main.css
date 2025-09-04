@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+html,
+body {
+  font-family: "Signika Negative", sans-serif;
+}
+
+html,
+body,
+body > div#__nuxt {
+  height: 100%;
+}
+
+.Toastify__toast {
+  font-family: "Signika Negative", sans-serif !important;
+  font-size: 15px;
+  line-height: 16px;
+}
+
+.vue-apexcharts {
+  min-height: 0px !important;
+}
+
+.os-theme-dark,
+.os-theme-light {
+  --os-handle-bg: rgb(41, 72, 153, 0.85) !important;
+  --os-handle-bg-hover: rgba(41, 72, 153) !important;
+  --os-handle-bg-active: rgba(41, 72, 153) !important;
+}
