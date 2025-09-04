@@ -4,11 +4,11 @@
 
 Repo ini merupakan keseluruhan sistem yang dirancang oleh saya sendiri. Di dalam repo ini terdapat kodingan mikrokontroller esp32, website, serta skripsi yang dibuat. Semoga repo ini dapat bermanfaat sebagai referensi dan dapat lebih dikembangkan lagi.
 
-## IoT API
+## IoT API Endpoint
 
 ### Base URL
 
-```http
+```
 /api/iot
 ```
 
@@ -31,42 +31,36 @@ Response:
 {
   "statusCode": 200,
   "data": {
-    "config": {
-      "automated": true,
-      "pln": {
-        "active": true
-      },
-      "plts": {
-        "active": true,
-        "battery": {
-          "min_voltage": 10.8
-        }
-      },
-      "relay": {
-        "n1": {
-          "source": "auto",
-          "max_load": 0.35
-        },
-        "n2": {
-          "source": "auto",
-          "max_load": 0.65
-        },
-        "n3": {
-          "source": "auto",
-          "max_load": 1
-        }
-      },
-      "time": 1729598802
+    "automated": true,
+    "configTime": 1729598802,
+    "pln": {
+      "active": true
     },
-    "time": 1729598802
+    "plts": {
+      "active": true,
+      "min_voltage": 220
+    },
+    "relay": {
+      "n1": {
+        "source": "auto",
+        "max_load": 25
+      },
+      "n2": {
+        "source": "auto",
+        "max_load": 40
+      },
+      "n3": {
+        "source": "auto",
+        "max_load": 60
+      }
+    }
   }
 }
 ```
 
 Catatan:
 
-1. Key time pada object config menunjukkan waktu terakhir konfigurasi diubah.
-2. Key time pada object data menunjukkan waktu sekarang yang diberikan oleh server.
+1. Key configTime pada object data menunjukkan waktu terakhir konfigurasi diubah.
 
 ### Store Sensor Data
 
@@ -78,29 +72,26 @@ Payload:
 
 ```json
 {
-  "pln": {
-    "voltage": 220,
-    "load": 1
-  },
-  "plts": {
-    "voltage": 218,
-    "load": 0.5,
-    "battery": {
-      "voltage": 10.8
-    }
-  },
+  "vpln": 230,
+  "vplts": 230,
+  "vbatt": 13.2,
+  "lpln": 75,
+  "lplts": 25,
   "relay": {
     "n1": {
-      "source": "pln",
-      "load": 0.1
+      "power": 25,
+      "current": 0.114,
+      "source": "plts"
     },
     "n2": {
-      "source": "plts",
-      "load": 0.25
+      "power": 35,
+      "current": 0.159,
+      "source": "pln"
     },
     "n3": {
-      "source": "plts",
-      "load": 0.45
+      "power": 40,
+      "current": 0.182,
+      "source": "pln"
     }
   }
 }
@@ -119,4 +110,4 @@ Response:
 
 Catatan:
 
-1. Key configTime pada object data menunjukkan waktu terakhir konfigurasi diubah.
+1. Key configTime pada object data menunjukkan waktu terakhir konfigurasi diperbarui.
